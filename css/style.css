@@ -905,8 +905,40 @@ html[dir="ltr"] .checkout-modal { left: 0; right: auto; transform: translateX(-1
   transition: var(--transition); outline: none; resize: none;
 }
 .co-field input:focus, .co-field textarea:focus { border-color: var(--gold); background: var(--card-hover); }
-.co-field input.field-error, .co-field textarea.field-error { border-color: var(--red); background: rgba(123,32,32,0.08); }
+.co-field input.field-error, .co-field textarea.field-error { border-color: var(--red); background: rgba(123,32,32,0.08); box-shadow: 0 0 0 2px rgba(180,30,30,0.25); }
 .co-field input.field-error::placeholder, .co-field textarea.field-error::placeholder { color: var(--red); opacity: 0.7; }
+@keyframes field-shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-6px)} 40%,80%{transform:translateX(6px)} }
+.field-shake { animation: field-shake 0.35s ease; }
+
+/* ── Order Success Modal ── */
+.order-success-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.8);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: fadeIn .2s ease;
+}
+.order-success-modal {
+  background: var(--card);
+  border: 1px solid var(--gold);
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+}
+.success-check {
+  width: 64px; height: 64px;
+  background: #2e7d32;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+.order-success-modal h3 { font-size: 1.3rem; color: var(--gold); margin-bottom: 12px; }
+.order-success-modal p  { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
+.order-success-modal .btn { min-width: 120px; }
 .co-field textarea { min-height: 72px; }
 .co-required { color: var(--red); margin-inline-start: 2px; }
 .co-item-row {

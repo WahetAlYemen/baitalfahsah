@@ -275,18 +275,27 @@ window.submitOrder = async function() {
   const notes   = (document.getElementById('coNotes')?.value   || '').trim();
 
   let valid = true;
+  let firstInvalid = null;
   [['coName', name], ['coPhone', phone], ['coAddress', address]].forEach(([id, val]) => {
     const el = document.getElementById(id);
     if (!el) return;
     if (!val) {
       el.classList.add('field-error');
-      el.addEventListener('input', () => el.classList.remove('field-error'), { once: true });
+      el.classList.remove('field-shake');
+      void el.offsetWidth;
+      el.classList.add('field-shake');
+      el.addEventListener('input', () => { el.classList.remove('field-error'); el.classList.remove('field-shake'); }, { once: true });
+      if (!firstInvalid) firstInvalid = el;
       valid = false;
     } else {
       el.classList.remove('field-error');
     }
   });
-  if (!valid) return;
+  if (!valid) {
+    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    firstInvalid.focus();
+    return;
+  }
 
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
@@ -317,17 +326,13 @@ window.submitOrder = async function() {
     const data = await res.json();
     if (!data.ok) throw new Error(data.error || 'Worker error');
 
-    btn.textContent = lang === 'en' ? '✓ Order Sent!' : '✓ تم إرسال الطلب!';
-    btn.style.background = '#4caf50';
-    setTimeout(() => {
-      cart = []; cartBranch = null; saveCart(); updateCartUI(); closeCart();
-      btn.disabled = false;
-      btn.textContent = lang === 'en' ? 'Place Order' : 'تأكيد الطلب';
-      btn.style.background = '';
-      ['coName','coPhone','coAddress','coNotes'].forEach(id => {
-        const el = document.getElementById(id); if (el) el.value = '';
-      });
-    }, 2200);
+    cart = []; cartBranch = null; saveCart(); updateCartUI(); closeCart();
+    btn.disabled = false;
+    btn.textContent = lang === 'en' ? 'Place Order' : 'تأكيد الطلب';
+    ['coName','coPhone','coAddress','coNotes'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.value = '';
+    });
+    showOrderSuccess(lang);
   } catch (_) {
     // Worker failed — fall back to WhatsApp
     const lines = cart.map(i => `• ${i.name} × ${i.qty} — ${(i.price * i.qty).toFixed(0)} ر.س`).join('\n');
@@ -337,6 +342,24 @@ window.submitOrder = async function() {
     btn.textContent = lang === 'en' ? 'Place Order' : 'تأكيد الطلب';
   }
 };
+
+// ── Order Success ──────────────────────────────────────────────────
+function showOrderSuccess(lang) {
+  const overlay = document.createElement('div');
+  overlay.className = 'order-success-overlay';
+  overlay.innerHTML = `
+    <div class="order-success-modal">
+      <div class="success-check">✓</div>
+      <h3>${lang === 'en' ? 'Order Sent Successfully!' : 'تم إرسال طلبك بنجاح!'}</h3>
+      <p>${lang === 'en'
+        ? 'The restaurant will contact you shortly to confirm your order.'
+        : 'سيتواصل معك المطعم قريباً لتأكيد طلبك والتنسيق معك.'}</p>
+      <button class="btn btn-primary" onclick="this.closest('.order-success-overlay').remove()">
+        ${lang === 'en' ? 'OK' : 'حسناً'}
+      </button>
+    </div>`;
+  document.body.appendChild(overlay);
+}
 
 // ── Branch Conflict Modal ──────────────────────────────────────────
 function showBranchConflict(newBranch, onConfirm) {

@@ -5,7 +5,7 @@ const CART_BRANCH_KEY = 'baf_cart_branch';
 const BRANCH_KEY      = 'baf_selected_branch';
 const FREE_DELIVERY_THRESHOLD = 100;
 const WHATSAPP_NUMBER = '966530463965';
-const WORKER_URL      = '/order';
+const WORKER_URL      = 'https://baitalfahsah-orders.sharif-alsahbool.workers.dev';
 
 const BRANCHES = {
   nasim: {

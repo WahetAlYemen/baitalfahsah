@@ -1,0 +1,4 @@
+worker.js
+functions/
+.env
+wrangler.toml

@@ -1,0 +1,5 @@
+name = "snowy-butterfly-1ed3"
+compatibility_date = "2025-01-01"
+
+[assets]
+directory = "."

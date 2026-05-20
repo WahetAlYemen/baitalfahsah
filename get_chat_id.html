@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Telegram Chat ID</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; background: #f5f5f5; }
+    h2 { color: #2c3e50; }
+    input { width: 100%; padding: 10px; font-size: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; margin-bottom: 12px; }
+    button { background: #229ED9; color: white; border: none; padding: 12px 28px; font-size: 15px; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #1a7fb0; }
+    #result { margin-top: 20px; background: white; border-radius: 8px; padding: 20px; border: 1px solid #ddd; display: none; }
+    .chat-id { font-size: 2rem; font-weight: bold; color: #229ED9; letter-spacing: 2px; margin: 10px 0; }
+    .label { color: #666; font-size: 13px; }
+    .error { color: #e74c3c; }
+    .hint { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 12px; margin-bottom: 20px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h2>🤖 Telegram Chat ID Finder</h2>
+
+  <div class="hint">
+    <strong>Before clicking:</strong> Send any message in your Telegram group first (so the bot receives it).
+  </div>
+
+  <label><strong>Bot Token:</strong></label>
+  <input type="text" id="token" placeholder="e.g. 7123456789:AAHxxxxxxxxxxxxxx">
+  <button onclick="fetchUpdates()">Get Chat ID</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function fetchUpdates() {
+      const token = document.getElementById('token').value.trim();
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+
+      if (!token) {
+        result.innerHTML = '<p class="error">Please enter your bot token.</p>';
+        return;
+      }
+
+      result.innerHTML = '<p>Loading...</p>';
+
+      try {
+        const res = await fetch(`https://api.telegram.org/bot${token}/getUpdates`);
+        const data = await res.json();
+
+        if (!data.ok) {
+          result.innerHTML = `<p class="error">Error: ${data.description}</p><p>Check that your token is correct.</p>`;
+          return;
+        }
+
+        if (!data.result || data.result.length === 0) {
+          result.innerHTML = `
+            <p class="error">No messages found.</p>
+            <ol>
+              <li>Go to your Telegram group</li>
+              <li>Send any message (e.g. "test")</li>
+              <li>Click the button again</li>
+            </ol>`;
+          return;
+        }
+
+        const seen = new Map();
+        data.result.forEach(u => {
+          const chat = (u.message || u.channel_post || u.my_chat_member)?.chat;
+          if (chat && !seen.has(chat.id)) seen.set(chat.id, chat);
+        });
+
+        let html = '';
+        seen.forEach(chat => {
+          html += `
+            <div style="margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid #eee;">
+              <div class="label">Group / Chat name:</div>
+              <strong>${chat.title || chat.first_name || '(private)'}</strong>
+              <div class="label" style="margin-top:8px;">Type: ${chat.type}</div>
+              <div class="label" style="margin-top:8px;">Chat ID (copy this):</div>
+              <div class="chat-id">${chat.id}</div>
+            </div>`;
+        });
+
+        result.innerHTML = html || '<p class="error">No group chats found. Make sure the bot is in the group and someone sent a message.</p>';
+
+      } catch (e) {
+        result.innerHTML = `<p class="error">Network error: ${e.message}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>

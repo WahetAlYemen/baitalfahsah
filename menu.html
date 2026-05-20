@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>القائمة — بيت الفحسة</title>
+  <meta name="description" content="قائمة بيت الفحسة — الفحسة، السلتة، المضغوط، الكباب والمشروبات اليمنية الأصيلة.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo">
+      <div class="logo-img-wrap">
+        <img src="photos/loogogg.jpg" alt="بيت الفحسة">
+      </div>
+      <div class="logo-text-stack">
+        <span class="logo-name">بيت الفحسة</span>
+        <span class="logo-tag">عبق النكهة من قلب صنعاء</span>
+      </div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html"        class="nav-link"        id="navHome">الرئيسية</a>
+      <a href="menu.html"         class="nav-link active"  id="navMenu">القائمة</a>
+      <a href="about.html"        class="nav-link"         id="navAbout">من نحن</a>
+      <a href="index.html#social" class="nav-link"         id="navContact">تواصل معنا</a>
+    </nav>
+
+    <div class="header-cta">
+      <button class="lang-toggle" id="langToggle" onclick="window.toggleLang()">EN</button>
+      <a href="tel:+966530463965" class="header-phone">
+        <span class="icon" style="width:14px;height:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12 19.79 19.79 0 01.87 3.43 2 2 0 012.86 1.28h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9a16 16 0 006.29 6.29l1.79-1.79a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7a2 2 0 011.72 2.07z"/></svg></span>
+        <span class="phone-ltr" dir="ltr">+966 53 046 3965</span>
+      </a>
+      <button class="cart-btn" aria-label="السلة" onclick="window.openCart()">
+        <span class="icon" style="width:18px;height:18px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></span>
+        <span class="cart-count" id="cartCount1"></span>
+      </button>
+      <a href="menu.html" class="btn btn-primary order-now-btn" id="headerOrderBtn">اطلب الآن</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══ MOBILE NAV ═══════════════════════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-links">
+    <a href="index.html"        class="mobile-nav-link"        id="mnavHome">الرئيسية</a>
+    <a href="menu.html"         class="mobile-nav-link active"  id="mnavMenu">القائمة</a>
+    <a href="about.html"        class="mobile-nav-link"         id="mnavAbout">من نحن</a>
+    <a href="index.html#social" class="mobile-nav-link"         id="mnavContact">تواصل معنا</a>
+    <a href="tel:+966530463965" class="mobile-call-link"><span class="phone-ltr" dir="ltr">+966 53 046 3965</span></a>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO ════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="photos/ttt.jpg" alt=""></div>
+  <div class="container page-hero-content">
+    <h1>القائمة</h1>
+    <p>اختر من أصيل المطبخ اليمني</p>
+    <div class="breadcrumb">
+      <a href="index.html">الرئيسية</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>القائمة</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BRANCH PICKER ════════════════════════════════════════════════ -->
+<div class="branch-picker-wrap">
+  <div class="branch-picker">
+    <button class="branch-pill active" data-branch="nasim" onclick="window.selectBranch('nasim')">
+      <span class="dot"></span>
+      <span class="branch-name-text">بيت الفحسة — النسيم</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══ CATEGORY TABS ════════════════════════════════════════════════ -->
+<div class="cat-tabs-wrap">
+  <div class="cat-tabs">
+    <button class="cat-tab active" data-cat="all"       id="catAll">الكل</button>
+    <button class="cat-tab"        data-cat="fahsah"    id="catFahsah">الفحسة</button>
+    <button class="cat-tab"        data-cat="saltah"    id="catSaltah">السلتة</button>
+    <button class="cat-tab"        data-cat="maqhouh"   id="catMaqhouh">المضغوط والرز</button>
+    <button class="cat-tab"        data-cat="kabab"     id="catKabab">الكباب</button>
+    <button class="cat-tab"        data-cat="beverages" id="catBeverages">المشروبات</button>
+  </div>
+</div>
+
+<!-- ══ MENU SECTIONS ════════════════════════════════════════════════ -->
+<main class="menu-sections" id="menuSections">
+
+  <!-- ── الفحسة ───────────────────────────────────────────────── -->
+  <div class="menu-section" data-cat="fahsah">
+    <div class="menu-section-head">
+      <span class="menu-section-title" id="secFahsahTitle">الفحسة</span>
+      <span class="menu-section-badge">الطبق الرئيسي</span>
+      <div class="menu-section-line"></div>
+    </div>
+    <div class="dish-grid">
+
+      <div class="dish-card" data-id="fahsah-lahm" data-name="فحسة لحم" data-price="30" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/%D9%81%D8%AD%D8%B3%D8%A9.jpg" alt="فحسة لحم" loading="lazy">
+          <span class="dish-badge badge-popular">الأكثر طلباً</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">فحسة لحم</div>
+          <div class="dish-price-row">
+            <span class="dish-price">30 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="fahsah-kabab" data-name="فحسة كباب بلدي" data-price="30" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/%D9%81%D8%AD%D8%B3%D8%A9.jpg" alt="فحسة كباب بلدي" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">فحسة كباب بلدي</div>
+          <div class="dish-price-row">
+            <span class="dish-price">30 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="brama-lahm" data-name="برمة لحم بلدي" data-price="65" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/%D9%81%D8%AD%D8%B3%D8%A9.jpg" alt="برمة لحم بلدي" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">برمة لحم بلدي</div>
+          <div class="dish-price-row">
+            <span class="dish-price">65 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="haneed" data-name="حنيد" data-price="85" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="حنيد" loading="lazy">
+          <span class="dish-badge badge-new">مميز</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">حنيد</div>
+          <div class="dish-price-row">
+            <span class="dish-price">85 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="bram-haneed" data-name="برم حنيد" data-price="170" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="برم حنيد" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">برم حنيد</div>
+          <div class="dish-price-row">
+            <span class="dish-price">170 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="maqsout" data-name="مكسوت لحم" data-price="68" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/t.jpg" alt="مكسوت لحم" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">مكسوت لحم</div>
+          <div class="dish-price-row">
+            <span class="dish-price">68 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── السلتة ────────────────────────────────────────────────── -->
+  <div class="menu-section" data-cat="saltah">
+    <div class="menu-section-head">
+      <span class="menu-section-title" id="secSaltahTitle">السلتة</span>
+      <div class="menu-section-line"></div>
+    </div>
+    <div class="dish-grid">
+
+      <div class="dish-card" data-id="saltah-sanani" data-name="سلتة صنعاني" data-price="15" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="سلتة صنعاني" loading="lazy">
+          <span class="dish-badge badge-popular">الأكثر طلباً</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">سلتة صنعاني</div>
+          <div class="dish-price-row">
+            <span class="dish-price">15 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="saltah-fahsah" data-name="سلتة وفحسة" data-price="15" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="سلتة وفحسة" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">سلتة وفحسة</div>
+          <div class="dish-price-row">
+            <span class="dish-price">15 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="saltah-daily" data-name="سلتة يومية" data-price="15" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="سلتة يومية" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">سلتة يومية</div>
+          <div class="dish-price-row">
+            <span class="dish-price">15 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── المضغوط والرز ─────────────────────────────────────────── -->
+  <div class="menu-section" data-cat="maqhouh">
+    <div class="menu-section-head">
+      <span class="menu-section-title" id="secMaqhouhTitle">المضغوط والرز</span>
+      <div class="menu-section-line"></div>
+    </div>
+    <div class="dish-grid">
+
+      <div class="dish-card" data-id="maghout-lahm" data-name="مضغوط لحم" data-price="40" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/t.jpg" alt="مضغوط لحم" loading="lazy">
+          <span class="dish-badge badge-popular">الأكثر طلباً</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">مضغوط لحم</div>
+          <div class="dish-price-row">
+            <span class="dish-price">40 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="maghout-hashi" data-name="مضغوط حاشي" data-price="65" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/t.jpg" alt="مضغوط حاشي" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">مضغوط حاشي</div>
+          <div class="dish-price-row">
+            <span class="dish-price">65 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="djaj-ruz" data-name="دجاج مع الرز" data-price="40" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/t.jpg" alt="دجاج مع الرز" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">دجاج مع الرز</div>
+          <div class="dish-price-row">
+            <span class="dish-price">40 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="djaj-zarbyan" data-name="دجاج زربيان" data-price="44" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="دجاج زربيان" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">دجاج زربيان</div>
+          <div class="dish-price-row">
+            <span class="dish-price">44 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="ruz-sanani" data-name="رز صنعاني" data-price="10" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/t.jpg" alt="رز صنعاني" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">رز صنعاني</div>
+          <div class="dish-price-row">
+            <span class="dish-price">10 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── الكباب ─────────────────────────────────────────────────── -->
+  <div class="menu-section" data-cat="kabab">
+    <div class="menu-section-head">
+      <span class="menu-section-title" id="secKababTitle">الكباب</span>
+      <div class="menu-section-line"></div>
+    </div>
+    <div class="dish-grid">
+
+      <div class="dish-card" data-id="kabab-baladi" data-name="كباب بلدي" data-price="22" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/t.jpg" alt="كباب بلدي" loading="lazy">
+          <span class="dish-badge badge-popular">الأكثر طلباً</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">كباب بلدي</div>
+          <div class="dish-price-row">
+            <span class="dish-price">22 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="kabab-khas" data-name="كباب بلدي خاص" data-price="25" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/t.jpg" alt="كباب بلدي خاص" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">كباب بلدي خاص</div>
+          <div class="dish-price-row">
+            <span class="dish-price">25 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── المشروبات ──────────────────────────────────────────────── -->
+  <div class="menu-section" data-cat="beverages">
+    <div class="menu-section-head">
+      <span class="menu-section-title" id="secBeveragesTitle">المشروبات</span>
+      <div class="menu-section-line"></div>
+    </div>
+    <div class="dish-grid">
+
+      <div class="dish-card" data-id="shai" data-name="شاي" data-price="5" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="شاي" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">شاي</div>
+          <div class="dish-price-row">
+            <span class="dish-price">5 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="shai-nanaa" data-name="شاي بالنعناع" data-price="7" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="شاي بالنعناع" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">شاي بالنعناع</div>
+          <div class="dish-price-row">
+            <span class="dish-price">7 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="limoon-nanaa" data-name="ليمون بالنعناع" data-price="8" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/%D9%81%D8%AD%D8%B3%D8%A9.jpg" alt="ليمون بالنعناع" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">ليمون بالنعناع</div>
+          <div class="dish-price-row">
+            <span class="dish-price">8 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-card" data-id="aseer" data-name="عصير طازج" data-price="10" data-branch="nasim">
+        <div class="dish-photo-hold">
+          <img src="photos/ttt.jpg" alt="عصير طازج" loading="lazy">
+        </div>
+        <div class="dish-body">
+          <div class="dish-name">عصير طازج</div>
+          <div class="dish-price-row">
+            <span class="dish-price">10 <small>ر.س</small></span>
+            <button class="dish-add-btn" onclick="window.addToCart(this)">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <div class="footer-logo-img"><img src="photos/loogogg.jpg" alt="بيت الفحسة"></div>
+          <span class="footer-brand-name">بيت الفحسة</span>
+        </a>
+        <p class="footer-tagline">النكهة الأصيلة من قلب صنعاء</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/baytalfahsah?igsh=MTFmZjhxYzB3M2JnbQ==" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://wa.me/966530463965" target="_blank" rel="noopener" class="footer-social-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="tel:+966530463965" class="footer-social-btn" title="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12 19.79 19.79 0 01.87 3.43 2 2 0 012.86 1.28h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9a16 16 0 006.29 6.29l1.79-1.79a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7a2 2 0 011.72 2.07z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerLinksTitle">روابط سريعة</h4>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link" id="fNavHome">الرئيسية</a>
+          <a href="menu.html"  class="footer-link" id="fNavMenu">القائمة</a>
+          <a href="about.html" class="footer-link" id="fNavAbout">من نحن</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerBranchesTitle">فروعنا</h4>
+        <div class="footer-links">
+          <a href="index.html#locationSection" class="footer-link branch-name-text">بيت الفحسة — النسيم</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerContactTitle">تواصل معنا</h4>
+        <div class="footer-contact-row"><span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12 19.79 19.79 0 01.87 3.43 2 2 0 012.86 1.28h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9a16 16 0 006.29 6.29l1.79-1.79a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7a2 2 0 011.72 2.07z"/></svg></span><a href="tel:+966530463965"><span class="phone-ltr" dir="ltr">+966 53 046 3965</span></a></div>
+        <div class="footer-contact-row"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:hwarlbany@gmail.com">hwarlbany@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" id="footerCopy">© 2025 بيت الفحسة. جميع الحقوق محفوظة.</span>
+      <div class="footer-legal"><a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ CART + CHECKOUT ══════════════════════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3 id="cartTitle">سلة الطلبات</h3>
+    <button class="cart-close-btn" onclick="window.closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer">
+    <div class="delivery-note" id="deliveryNote">رسوم التوصيل تُحدد عند التواصل</div>
+    <div class="cod-badge" id="cartCodBadge">الدفع عند الاستلام</div>
+    <div class="cart-total-row">
+      <span class="cart-total-label" id="cartTotalLabel">المجموع</span>
+      <span class="cart-total-value" id="cartTotal">0 ر.س</span>
+    </div>
+    <button class="proceed-btn" id="proceedBtn" onclick="window.openCheckout()" disabled>تأكيد الطلب</button>
+  </div>
+</div>
+
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-header">
+    <button class="back-btn" onclick="window.closeCheckout()">←</button>
+    <h3 id="checkoutTitle">إتمام الطلب</h3>
+  </div>
+  <div class="checkout-body">
+    <div class="co-section-title" id="coInfoTitle">بيانات التوصيل</div>
+    <div class="co-field">
+      <label data-i18n-label="co.name.lbl">الاسم الكامل <span class="co-required">*</span></label>
+      <input type="text" id="coName" required data-i18n-ph="co.name.ph" placeholder="أدخل اسمك الكامل">
+    </div>
+    <div class="co-field">
+      <label data-i18n-label="co.ph.lbl">رقم الهاتف <span class="co-required">*</span></label>
+      <input type="tel" id="coPhone" dir="ltr" required data-i18n-ph="co.ph.ph" placeholder="05xxxxxxxx">
+    </div>
+    <div class="co-field">
+      <label data-i18n-label="co.addr.lbl">عنوان التوصيل <span class="co-required">*</span></label>
+      <textarea id="coAddress" required data-i18n-ph="co.addr.ph" placeholder="حي، شارع، رقم المبنى…"></textarea>
+    </div>
+    <div class="co-field">
+      <label data-i18n-label="co.note.lbl">ملاحظات (اختياري)</label>
+      <textarea id="coNotes" data-i18n-ph="co.note.ph" placeholder="أي تعليمات إضافية…"></textarea>
+    </div>
+    <div class="co-section-title" id="coSummaryTitle" style="margin-top:20px;">ملخص الطلب</div>
+    <div id="coSummary" class="co-summary"></div>
+    <div class="co-total-rows">
+      <div class="co-total-row" id="coDeliveryRow"></div>
+      <div class="co-total-row grand" id="coGrandTotal"></div>
+    </div>
+  </div>
+  <div class="checkout-footer">
+    <div class="cod-badge" id="coCodBadge" style="margin-bottom:10px;">الدفع عند الاستلام</div>
+    <button class="submit-btn" id="submitBtn" onclick="window.submitOrder()">تأكيد الطلب</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

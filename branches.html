@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الفروع — بيت الفحسة</title>
+  <meta name="description" content="فروع بيت الفحسة في الرياض — حي النسيم الغربي، شارع سعد بن أبي وقاص.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo">
+      <div class="logo-img-wrap">
+        <img src="photos/loogogg.jpg" alt="بيت الفحسة">
+      </div>
+      <div class="logo-text-stack">
+        <span class="logo-name">بيت الفحسة</span>
+        <span class="logo-tag">عبق الفكهة من قلب صنعاء</span>
+      </div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html"        class="nav-link"        id="navHome">الرئيسية</a>
+      <a href="menu.html"         class="nav-link"        id="navMenu">القائمة</a>
+      <a href="about.html"        class="nav-link"        id="navAbout">من نحن</a>
+      <a href="index.html#social" class="nav-link"        id="navContact">تواصل معنا</a>
+    </nav>
+
+    <div class="header-cta">
+      <button class="lang-toggle" id="langToggle" onclick="window.toggleLang()">EN</button>
+      <a href="tel:+966530463965" class="header-phone">
+        <span>📞</span> +966 53 046 3965
+      </a>
+      <button class="cart-btn" aria-label="السلة">
+        🛒
+        <span class="cart-count" id="cartCount1"></span>
+      </button>
+      <a href="menu.html" class="btn btn-primary order-now-btn" id="headerOrderBtn">اطلب الآن</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══ MOBILE NAV ═══════════════════════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-links">
+    <a href="index.html"        class="mobile-nav-link"        id="mnavHome">الرئيسية</a>
+    <a href="menu.html"         class="mobile-nav-link"        id="mnavMenu">القائمة</a>
+    <a href="branches.html"     class="mobile-nav-link active"  id="mnavBranches">الفروع</a>
+    <a href="about.html"        class="mobile-nav-link"        id="mnavAbout">من نحن</a>
+    <a href="index.html#social" class="mobile-nav-link"        id="mnavContact">تواصل معنا</a>
+    <a href="tel:+966530463965" class="mobile-call-link">📞 &nbsp;+966 53 046 3965</a>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO ════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="photos/tt.jpg" alt=""></div>
+  <div class="container page-hero-content">
+    <h1 class="branch-title-h">فروعنا</h1>
+    <p class="branch-sub-p">جد أقرب فرع إليك واطلب منه مباشرة</p>
+    <div class="breadcrumb">
+      <a href="index.html">الرئيسية</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>الفروع</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BRANCHES ═════════════════════════════════════════════════════ -->
+<section class="section" id="branchesFull">
+  <div class="container">
+    <div class="branches-full-grid">
+
+      <!-- فرع النسيم -->
+      <div class="branch-full-card reveal">
+        <div class="branch-slideshow">
+          <div class="slide active">
+            <img src="photos/ttt.jpg" alt="بيت الفحسة — النسيم">
+          </div>
+          <div class="slide">
+            <img src="photos/tt.jpg" alt="بيت الفحسة — الداخل">
+          </div>
+          <div class="slide">
+            <img src="photos/t.jpg" alt="بيت الفحسة — الأطباق">
+          </div>
+        </div>
+
+        <div class="branch-full-body">
+          <div class="branch-full-name branch-name-text">بيت الفحسة — النسيم</div>
+          <div class="branch-full-area branch-area-text">حي النسيم الغربي · الرياض</div>
+
+          <div class="branch-pills-row">
+            <div class="info-pill">
+              <span class="ico">📞</span>
+              <a href="tel:+966530463965" style="color:inherit;">+966 53 046 3965</a>
+            </div>
+            <div class="info-pill">
+              <span class="ico">🕐</span>
+              <span class="branch-hours-text">12:00 م – 2:00 ص</span>
+            </div>
+            <div class="info-pill">
+              <span class="ico">🚗</span>
+              <span>توصيل متاح</span>
+            </div>
+            <div class="info-pill">
+              <span class="ico">🪑</span>
+              <span>جلوس داخلي</span>
+            </div>
+          </div>
+
+          <div class="info-pill" style="margin-bottom:20px; border-radius:var(--radius);">
+            <span class="ico">📍</span>
+            <span class="branch-addr-text">شارع سعد بن أبي وقاص، حي النسيم الغربي، الرياض 14231</span>
+          </div>
+
+          <div class="branch-full-actions">
+            <a href="https://maps.app.goo.gl/jj8QfuRpyf8awKri7" target="_blank" rel="noopener"
+               class="btn btn-ghost btn-map">📍 الموقع على الخريطة</a>
+            <a href="menu.html?branch=nasim"
+               class="btn btn-primary btn-order-branch">اطلب من هنا</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <div class="footer-logo-img"><img src="photos/loogogg.jpg" alt="بيت الفحسة"></div>
+          <span class="footer-brand-name">بيت الفحسة</span>
+        </a>
+        <p class="footer-tagline">النكهة الأصيلة من قلب صنعاء</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/baytalfahsah?igsh=MTFmZjhxYzB3M2JnbQ==" target="_blank" rel="noopener" class="footer-social-btn">📸</a>
+          <a href="https://wa.me/966530463965" target="_blank" rel="noopener" class="footer-social-btn">💬</a>
+          <a href="tel:+966530463965" class="footer-social-btn">📞</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerLinksTitle">روابط سريعة</h4>
+        <div class="footer-links">
+          <a href="index.html"    class="footer-link" id="fNavHome">الرئيسية</a>
+          <a href="menu.html"     class="footer-link" id="fNavMenu">القائمة</a>
+          <a href="branches.html" class="footer-link" id="fNavBranches">الفروع</a>
+          <a href="about.html"    class="footer-link" id="fNavAbout">من نحن</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerBranchesTitle">فروعنا</h4>
+        <div class="footer-links">
+          <a href="branches.html" class="footer-link branch-name-text">بيت الفحسة — النسيم</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footerContactTitle">تواصل معنا</h4>
+        <div class="footer-contact-row"><span class="ico">📞</span><a href="tel:+966530463965">+966 53 046 3965</a></div>
+        <div class="footer-contact-row"><span class="ico">✉️</span><a href="mailto:hwarlbany@gmail.com">hwarlbany@gmail.com</a></div>
+        <div class="footer-contact-row"><span class="ico">🕐</span><span class="branch-hours-text">12:00 م – 2:00 ص</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" id="footerCopy">© 2025 بيت الفحسة. جميع الحقوق محفوظة.</span>
+      <div class="footer-legal"><a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ CART + CHECKOUT ══════════════════════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3 id="cartTitle">سلة الطلبات</h3>
+    <button class="cart-close-btn" onclick="window.closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer">
+    <div class="delivery-note" id="deliveryNote">🚗 رسوم التوصيل تُحدد عند التواصل</div>
+    <div class="cod-badge" id="cartCodBadge">💵 الدفع عند الاستلام</div>
+    <div class="cart-total-row">
+      <span class="cart-total-label" id="cartTotalLabel">المجموع</span>
+      <span class="cart-total-value" id="cartTotal">0 ر.س</span>
+    </div>
+    <button class="proceed-btn" id="proceedBtn" onclick="window.openCheckout()" disabled>تأكيد الطلب</button>
+  </div>
+</div>
+
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-header">
+    <button class="back-btn" onclick="window.closeCheckout()">←</button>
+    <h3 id="checkoutTitle">إتمام الطلب</h3>
+  </div>
+  <div class="checkout-body">
+    <div class="co-section-title" id="coInfoTitle">بيانات التوصيل</div>
+    <div class="co-field">
+      <label data-i18n-label="co.name.lbl">الاسم الكامل <span class="co-required">*</span></label>
+      <input type="text" id="coName" data-i18n-ph="co.name.ph" placeholder="أدخل اسمك الكامل">
+    </div>
+    <div class="co-field">
+      <label data-i18n-label="co.ph.lbl">رقم الهاتف <span class="co-required">*</span></label>
+      <input type="tel" id="coPhone" dir="ltr" data-i18n-ph="co.ph.ph" placeholder="05xxxxxxxx">
+    </div>
+    <div class="co-field">
+      <label data-i18n-label="co.addr.lbl">عنوان التوصيل <span class="co-required">*</span></label>
+      <textarea id="coAddress" data-i18n-ph="co.addr.ph" placeholder="حي، شارع، رقم المبنى…"></textarea>
+    </div>
+    <div class="co-field">
+      <label data-i18n-label="co.note.lbl">ملاحظات (اختياري)</label>
+      <textarea id="coNotes" data-i18n-ph="co.note.ph" placeholder="أي تعليمات إضافية…"></textarea>
+    </div>
+    <div class="co-section-title" id="coSummaryTitle" style="margin-top:20px;">ملخص الطلب</div>
+    <div id="coSummary" class="co-summary"></div>
+    <div class="co-total-rows">
+      <div class="co-total-row" id="coDeliveryRow"></div>
+      <div class="co-total-row grand" id="coGrandTotal"></div>
+    </div>
+  </div>
+  <div class="checkout-footer">
+    <div class="cod-badge" id="coCodBadge" style="margin-bottom:10px;">💵 الدفع عند الاستلام</div>
+    <button class="submit-btn" id="submitBtn" onclick="window.submitOrder()">تأكيد الطلب</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

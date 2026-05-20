@@ -375,6 +375,12 @@ window.selectBranch = function(branchId) {
   document.querySelectorAll('.dish-card').forEach(c => c.dataset.branch = branchId);
 };
 
+// ── Order Now ─────────────────────────────────────────────────────
+window.handleOrderNow = function() {
+  if (cart.length > 0) window.openCart();
+  else window.location.href = 'menu.html';
+};
+
 // ── Header Scroll ──────────────────────────────────────────────────
 function initHeader() {
   const h = document.querySelector('.site-header');

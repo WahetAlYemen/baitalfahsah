@@ -4,7 +4,7 @@ const LANG_KEY = 'baf_lang';
 
 const T = {
   'nav.home':     { ar: 'الرئيسية',      en: 'Home' },
-  'nav.menu':     { ar: 'القائمة',       en: 'Menu' },
+  'nav.menu':     { ar: 'قائمة الطعام',  en: 'Menu' },
   'nav.branches': { ar: 'الفروع',        en: 'Branches' },
   'nav.about':    { ar: 'من نحن',        en: 'About Us' },
   'nav.contact':  { ar: 'تواصل معنا',    en: 'Contact' },

@@ -1198,6 +1198,13 @@ html[dir="ltr"] .checkout-modal { left: 0; right: auto; transform: translateX(-1
 .dish-card:hover { transform: translateY(-2px); border-color: var(--border-h); box-shadow: var(--shadow-card); }
 .dish-photo-hold { position: relative; aspect-ratio: 3/2; overflow: hidden; background: var(--bg-3); }
 .dish-photo-hold img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.42s ease; }
+.dish-no-photo {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px;
+  color: var(--muted);
+}
+.dish-no-photo svg { width: 26px; height: 26px; opacity: 0.35; }
+.dish-no-photo span { font-size: 0.68rem; opacity: 0.45; }
 .dish-card:hover .dish-photo-hold img { transform: scale(1.07); }
 .dish-badge {
   position: absolute; top: 6px; right: 6px;

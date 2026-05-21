@@ -505,4 +505,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const initial = (branchParam && BRANCHES[branchParam]) ? branchParam
                 : (saved && BRANCHES[saved]) ? saved : 'nasim';
   window.selectBranch(initial);
+
+  // Location photo slideshow
+  const locSlides = Array.from(document.querySelectorAll('.loc-slide'));
+  if (locSlides.length > 1) {
+    let locIdx = 0;
+    setInterval(() => {
+      locSlides[locIdx].classList.remove('active');
+      locIdx = (locIdx + 1) % locSlides.length;
+      locSlides[locIdx].classList.add('active');
+    }, 3500);
+  }
 });

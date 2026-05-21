@@ -44,6 +44,8 @@ const DISHES_DATA = [
   // الكباب
   { id: 'kabab-baladi',  ar: 'كباب بلدي',        en: 'Local Kebab',       price: 22,  cat: 'kabab',     badge: 'popular' },
   { id: 'kabab-khas',    ar: 'كباب بلدي خاص',   en: 'Special Kebab',     price: 25,  cat: 'kabab' },
+  { id: 'rub3-ferakh',   ar: 'ربع فرخه',         en: 'Quarter Chicken',   price: 28,  cat: 'kabab' },
+  { id: 'nus-ferakh',    ar: 'نص فرخه',          en: 'Half Chicken',      price: 45,  cat: 'kabab' },
   // المشروبات
   { id: 'shai',          ar: 'شاي',              en: 'Tea',               price: 5,   cat: 'beverages' },
   { id: 'shai-nanaa',    ar: 'شاي بالنعناع',    en: 'Mint Tea',          price: 7,   cat: 'beverages' },
@@ -71,7 +73,9 @@ const DISH_PHOTOS = {
   'shai':          'photos/ttt.jpg',
   'shai-nanaa':    'photos/ttt.jpg',
   'limoon-nanaa':  'photos/ttt.jpg',
-  'aseer':         'photos/ttt.jpg',
+  'aseer':         'photos/%D8%B9%D8%B5%D9%8A%D8%B1.jpg',
+  'rub3-ferakh':   'photos/%D8%B1%D8%A8%D8%B9%20%D9%81%D8%B1%D8%AE%D9%87.jpg',
+  'nus-ferakh':    'photos/%D9%86%D8%B5%20%D9%81%D8%B1%D8%AE%D9%87.jpg',
 };
 
 // ── State ──────────────────────────────────────────────────────────

@@ -35,6 +35,10 @@ const T = {
   'branch.hours':    { ar: 'ساعات العمل: ',      en: 'Hours: ' },
   'branch.delivery': { ar: 'توصيل متاح',         en: 'Delivery Available' },
 
+  'vibe.badge':     { ar: 'أجواء المطعم',          en: 'Our Atmosphere' },
+  'vibe.title':     { ar: 'استمتع بتجربة مميزة',  en: 'A Unique Experience Awaits' },
+  'vibe.desc':      { ar: 'جلسات أنيقة وأجواء يمنية أصيلة تأخذك إلى قلب صنعاء', en: 'Elegant seating and authentic Yemeni atmosphere that takes you to the heart of Sanaa' },
+
   'social.badge':   { ar: 'تابعنا',              en: 'Follow Us' },
   'social.title':   { ar: 'كن جزءاً من عائلتنا', en: 'Be Part of Our Family' },
   'social.fb.cta':  { ar: 'تابعنا على فيسبوك',   en: 'Follow on Facebook' },
@@ -190,6 +194,10 @@ function applyHome(lang) {
   setText('#featDesc',  t('feat.desc', lang));
   qsa('.feat-badge-text').forEach(el => el.textContent = t('feat.popular', lang));
   qsa('.feat-cta-text').forEach(el => el.textContent   = t('feat.order', lang));
+
+  setText('#vibeBadge', t('vibe.badge', lang));
+  setText('#vibeTitle', t('vibe.title', lang));
+  setText('#vibeDesc',  t('vibe.desc',  lang));
 
   setText('#branchBadge', t('branch.badge', lang));
   setText('#branchTitle', t('branch.title', lang));
